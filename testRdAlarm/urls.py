@@ -24,4 +24,6 @@ urlpatterns = [
     path('index/', views.index),
     path('login_action/', views.login_action),
     path('devid_manage/', views.devid_manage),
+    url(r'^logout/$', views.logout),
+    url(r'^image_list/(?P<eid>([0-9]{16}))/$', views.image_list),
 ]

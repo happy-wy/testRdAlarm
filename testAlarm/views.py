@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from testAlarm.models import DevID
+from testAlarm.models import DevID, Image
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 
@@ -28,4 +28,20 @@ def login_action(request):
 def devid_manage(request):
     devid_list = DevID.objects.all()
     username = request.session.get("user", '')
-    return render(request, "devid_manage.html", {"user": username, "devid": devid_list})
+    return render(request, "devid_manage.html", {"user": username, "devids": devid_list})
+
+
+@login_required
+def image_list(request, eid):
+    if not request.user.is_authenticated:
+        images = get_object_or_404(Image, Aid=eid)
+        return render(request, 'image_list.html', {'images': images})
+
+
+@login_required
+def logout(request):
+    auth.logout(request)
+    response = HttpResponseRedirect('/index/')
+    return response
+
+
