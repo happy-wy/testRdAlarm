@@ -33,9 +33,8 @@ def devid_manage(request):
 
 @login_required
 def image_list(request, eid):
-    if not request.user.is_authenticated:
-        images = get_object_or_404(Image, Aid=eid)
-        return render(request, 'image_list.html', {'images': images})
+    images = get_object_or_404(Image, Aid=eid)
+    return render(request, 'image_list.html', {"image": images})
 
 
 @login_required

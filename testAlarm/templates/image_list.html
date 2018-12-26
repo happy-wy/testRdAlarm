@@ -2,7 +2,10 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>images</title>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>报警详情</title>
 </head>
 <body role="document">
     <!--导航栏-->
@@ -11,13 +14,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/devid_manage/">Test Alarm System</a>
             </div>
-
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">设备列表</a></li>
-
                 </ul>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">{{user}}</a></li>>
                     <li><a href="/logout/">退出</a></li>
@@ -32,15 +32,16 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>id</th><th>名称</th>
+                    <th>报警类型</th><th>图片</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for i in images %}
+
                 <tr>
-                    <td>{{ i.type }}</td>
+                    <td>{{ image.type }}</td>
+                    <td><img src="{{ image.picture.url }}" width="100px" height="100px"> </td>
                 </tr>
-                {% endfor %}
+
                 </tbody>
             </table>
         </div>
