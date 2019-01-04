@@ -25,3 +25,8 @@ class Image(models.Model):
 
     def __iter__(self):
         return self
+
+
+class FileGz(models.Model):
+    gz = models.FileField(upload_to='GzFile/%Y/%m/%d')
+

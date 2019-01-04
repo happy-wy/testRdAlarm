@@ -1,8 +1,9 @@
-from django.conf.urls import url
+from django.urls import path
 from testAlarm import views_if
 
+
+app_name = 'testAlarm'
+
 urlpatterns = [
-    # test system interface:
-    # /api/add_Alarm/
-    # url(r'^add_Alarm/', views_if,add_Alarm, name='add_Alarm'),
+    path('upload/add_Alarm', views_if.add_Alarm),
 ]

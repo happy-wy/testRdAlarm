@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'testAlarm',
     'bootstrap3',
-    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +126,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
